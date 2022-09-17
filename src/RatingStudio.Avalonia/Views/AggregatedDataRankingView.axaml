@@ -1,0 +1,36 @@
+﻿<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="RatingStudio.Avalonia.Views.AggregatedDataRankingView">
+    <StackPanel>
+        <StackPanel Margin="40,0,0,20">
+            <Label
+                Content="Агрегированное ранжирование данных"
+                FontSize="32"
+                Foreground="Black">
+            </Label>
+        </StackPanel>
+        <Grid ColumnDefinitions="200,*">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" MinHeight="30" />
+            </Grid.RowDefinitions>
+            <StackPanel Grid.Column="0" Margin="10">
+                <Button
+                    Padding="10"
+                    Margin="5">
+                    <TextBlock Text="Агрегированное ранжирование" TextAlignment="Center" TextWrapping="Wrap"/>
+                </Button>
+            </StackPanel>
+            <DataGrid
+                Grid.Column="1"
+                Height="670"
+                Margin="10">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Название"/>
+                </DataGrid.Columns>
+            </DataGrid>
+        </Grid>
+    </StackPanel>
+</UserControl>
