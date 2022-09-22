@@ -1,8 +1,9 @@
-﻿using System.Collections.ObjectModel;
+using System.Collections.ObjectModel;
 using System.Reactive;
 using System.Reactive.Linq;
 using DynamicData;
 using RatingStudio.Domain.Dto;
+using RatingStudio.Infrastructure.Matrix;
 using RatingStudio.Infrastructure.ParsingFiles;
 using ReactiveUI;
 using Splat;
@@ -15,6 +16,7 @@ namespace RatingStudio.Avalonia.ViewModels;
 public class AggregatedDataRankingViewModel : ViewModelBase
 {
     private readonly IExcelParser<UniversityRatingDto> _excelParser;
+    private readonly IStoreMatrix<int?, IList<UniversityRatingDto>> _storeMatrix;
 
     #region Public Properties
 
@@ -33,9 +35,13 @@ public class AggregatedDataRankingViewModel : ViewModelBase
     /// <summary>
     /// Default constructor
     /// </summary>
-    public AggregatedDataRankingViewModel(IExcelParser<UniversityRatingDto> excelParser)
+    public AggregatedDataRankingViewModel(
+        IExcelParser<UniversityRatingDto> excelParser,
+        IStoreMatrix<int?, IList<UniversityRatingDto>> storeMatrix
+        )
     {
         _excelParser = excelParser;
+        _storeMatrix = storeMatrix;
 
         SetupCommands();
     }
@@ -63,6 +69,9 @@ public class AggregatedDataRankingViewModel : ViewModelBase
             UniversityRating.Clear();
 
             UniversityRating.AddRange(await ExcelParserAsync());
+
+            //Перенос данных в матрицу
+            var matrix = _storeMatrix.Store(UniversityRating);
         });
     }
 }

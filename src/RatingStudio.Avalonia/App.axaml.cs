@@ -3,6 +3,7 @@ using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Markup.Xaml;
 using RatingStudio.Avalonia.ViewModels;
 using RatingStudio.UniversityRating.ParsingFiles;
+using RatingStudio.UniversityRating.RatingMatrix;
 
 namespace RatingStudio.Avalonia;
 
@@ -21,7 +22,8 @@ public partial class App : Application
             {
                 DataContext = new MainViewModel(
                     new AggregatedDataRankingViewModel(
-                        new UniversityRatingExcelParsing()
+                        new UniversityRatingExcelParsing(),
+                        new UniversityRatingStoreMatrix()
                         )
                 )
             };
