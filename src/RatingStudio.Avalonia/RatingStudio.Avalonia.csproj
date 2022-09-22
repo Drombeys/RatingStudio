@@ -24,5 +24,7 @@
     </ItemGroup>
     <ItemGroup>
       <ProjectReference Include="..\RatingStudio.Domain\RatingStudio.Domain.csproj" />
+      <ProjectReference Include="..\RatingStudio.Infrastructure\RatingStudio.Infrastructure.csproj" />
+      <ProjectReference Include="..\RatingStudio.UniversityRating\RatingStudio.UniversityRating.csproj" />
     </ItemGroup>
 </Project>

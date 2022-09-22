@@ -3,7 +3,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:viewModels="clr-namespace:RatingStudio.Avalonia.ViewModels"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             mc:Ignorable="d" d:DesignWidth="1200" d:DesignHeight="450"
              x:Class="RatingStudio.Avalonia.Views.AggregatedDataRankingView">
     
     <Design.DataContext>
@@ -15,8 +15,7 @@
             <Label
                 Content="Агрегированное ранжирование данных"
                 FontSize="32"
-                Foreground="Black">
-            </Label>
+                Foreground="Black"/>
         </StackPanel>
         <Grid ColumnDefinitions="200,*">
             <Grid.RowDefinitions>
@@ -24,6 +23,14 @@
             </Grid.RowDefinitions>
             <StackPanel Grid.Column="0" Margin="10">
                 <Button
+                    Width="150"
+                    Padding="10"
+                    Command="{Binding LoadDataCommand}"
+                    Margin="5">
+                    <TextBlock Text="Загрузить данные" TextAlignment="Center" TextWrapping="Wrap"/>
+                </Button>
+                <Button
+                    Width="150"
                     Padding="10"
                     Margin="5">
                     <TextBlock Text="Агрегированное ранжирование" TextAlignment="Center" TextWrapping="Wrap"/>

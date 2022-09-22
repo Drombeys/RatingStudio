@@ -2,6 +2,7 @@ using Avalonia;
 using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Markup.Xaml;
 using RatingStudio.Avalonia.ViewModels;
+using RatingStudio.UniversityRating.ParsingFiles;
 
 namespace RatingStudio.Avalonia;
 
@@ -18,7 +19,11 @@ public partial class App : Application
         {
             desktop.MainWindow = new MainWindow
             {
-                DataContext = new MainViewModel(new AggregatedDataRankingViewModel())
+                DataContext = new MainViewModel(
+                    new AggregatedDataRankingViewModel(
+                        new UniversityRatingExcelParsing()
+                        )
+                )
             };
         }
 

@@ -17,14 +17,14 @@
 public record UniversityRatingDto
 (
     string? Name,
-    int ARWU, 
-    int QS, 
-    int THE, 
-    int ScimagoIR, 
-    int NTU, 
-    int URAP, 
-    int CWTS, 
-    int USNews, 
-    int MosIUR, 
-    double Rank
+    int? ARWU, 
+    int? QS, 
+    int? THE, 
+    int? ScimagoIR, 
+    int? NTU, 
+    int? URAP, 
+    int? CWTS, 
+    int? USNews, 
+    int? MosIUR, 
+    double Rank = 0
 );
